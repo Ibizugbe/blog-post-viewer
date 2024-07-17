@@ -23,15 +23,19 @@ const BlogPostList: React.FC = () => {
         onChange={e => setSearchQuery(e.target.value)}
         className="mb-4 p-2 border rounded"
       />
-      <ul>
-        {filteredPosts?.map(post => (
-          <li key={post.id} className="mb-2">
-            <Link to={`/posts/${post.id}`} className="text-left w-full">
-              {post.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {filteredPosts && filteredPosts.length > 0 ? (
+        <ul>
+          {filteredPosts.map(post => (
+            <li key={post.id} className="mb-2">
+              <Link to={`/posts/${post.id}`} className="text-left w-full">
+                {post.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div>No records found</div>
+      )}
     </div>
   );
 };
