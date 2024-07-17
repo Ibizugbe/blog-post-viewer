@@ -4,11 +4,13 @@ import { useBlogPosts } from '../hooks/useBlogPosts';
 import CustomInput from './CustomInput';
 import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 import { motion } from "framer-motion";
+import { useTheme } from '../context/ThemeContext';
 
 
 const BlogPostList: React.FC = () => {
   const { data: posts, error, isLoading } = useBlogPosts();
   const [searchQuery, setSearchQuery] = useState('');
+  const { theme } = useTheme();
 
   const placeholders = [
     "Search for posts...",
@@ -34,7 +36,7 @@ const BlogPostList: React.FC = () => {
   );
 
   return (
-    <div className="p-4">
+    <div className={`p-4 ${theme === 'dark' ? 'dark' : ''}`}>
       <h1 className="text-2xl font-bold mb-4 text-center">Blog Posts</h1>
       <form onSubmit={onSubmit} className="mb-4 flex justify-center">
         <CustomInput
@@ -52,7 +54,7 @@ const BlogPostList: React.FC = () => {
                   {post.title}
                 </Link>
               }
-              header={<Skeleton/>}
+              header={<Skeleton />}
               className={i === 3 || i === 6 ? "md:col-span-2" : ""}
             />
           ))}

@@ -21,7 +21,7 @@ const CustomInput: React.FC<CustomInputProps> = ({ placeholders, onChange }) => 
       type="text"
       placeholder={placeholders[placeholderIndex]}
       onChange={onChange}
-      className="p-2 border rounded w-full"
+      className="p-2 border rounded w-11/12 lg:w-1/3"
     />
   );
 };
