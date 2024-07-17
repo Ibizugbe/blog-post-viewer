@@ -36,7 +36,7 @@ const BlogPostList: React.FC = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">Blog Posts</h1>
-      <form onSubmit={onSubmit} className="mb-4">
+      <form onSubmit={onSubmit} className="mb-4 flex justify-center">
         <CustomInput
           placeholders={placeholders}
           onChange={handleChange}
