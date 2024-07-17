@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
 import { useBlogPosts } from '../hooks/useBlogPosts';
+import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 import CustomInput from './CustomInput';
-import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
-import { motion } from "framer-motion";
-import { useTheme } from '../context/ThemeContext';
-
+import { BentoGrid, BentoGridItem } from '../ui/bento-grid';
+import { motion } from 'framer-motion';
 
 const BlogPostList: React.FC = () => {
-  const { data: posts, error, isLoading } = useBlogPosts();
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useBlogPosts();
   const [searchQuery, setSearchQuery] = useState('');
-  const { theme } = useTheme();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage, hasNextPage]);
 
   const placeholders = [
     "Search for posts...",
@@ -31,12 +36,14 @@ const BlogPostList: React.FC = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading posts</div>;
 
-  const filteredPosts = posts?.filter(post =>
-    post.title.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredPosts = data?.pages.flatMap(page =>
+    page.filter(post =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
   );
 
   return (
-    <div className={`p-4 ${theme === 'dark' ? 'dark' : ''}`}>
+    <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">Blog Posts</h1>
       <form onSubmit={onSubmit} className="mb-4 flex justify-center">
         <CustomInput
@@ -62,6 +69,7 @@ const BlogPostList: React.FC = () => {
       ) : (
         <div>No records found</div>
       )}
+      <div ref={ref} />
     </div>
   );
 };
@@ -94,7 +102,7 @@ const Skeleton = () => {
     >
       {arr.map((_, i) => (
         <motion.div
-          key={"skelenton-two" + i}
+          key={"skeleton-two" + i}
           variants={variants}
           style={{
             maxWidth: Math.random() * (100 - 40) + 40 + "%",
