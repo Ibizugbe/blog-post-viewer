@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { BlogPost } from '../types/types';
 import { fetchBlogPost } from '../api/blogPosts';
+import { Spinner } from '@material-tailwind/react';
+
 
 const BlogPostDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,7 +13,13 @@ const BlogPostDetail: React.FC = () => {
     queryFn: () => fetchBlogPost(id!),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Spinner className="h-12 w-12" color="blue" />
+      </div>
+    );
+  }
   if (error) return <div>Error loading post</div>;
 
   return (
