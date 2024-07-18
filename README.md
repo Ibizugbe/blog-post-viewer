@@ -30,7 +30,6 @@ For more information on the importance of a professional README for your reposit
 
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.pn" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Blog Post Viewer</b></h3>
@@ -63,7 +62,7 @@ For more information on the importance of a professional README for your reposit
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Blog Post Viewer <a name="about-project"></a>
 
 **Blog Post Viewer** is a...
 
@@ -76,12 +75,16 @@ For more information on the importance of a professional README for your reposit
   <ul>
     <li><a href="https://reactjs.org/">React.js</a></li>
   </ul>
+
 </details>
 
 <details>
   <summary>Style</summary>
   <ul>
     <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://tailwindcss.com/](https://ui.aceternity.com/">AceternityUI</a></li>
   </ul>
 </details>
 
@@ -106,7 +109,7 @@ For more information on the importance of a professional README for your reposit
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://dev--blog-post-viewer01.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,7 +136,13 @@ Example command:
 
 ### Setup
 
-Clone this repository to your desired folder:
+You can clone this repository to your desired folder using the command below.
+
+```
+git clone https://github.com/Ibizugbe/blog-post-viewer
+
+cd blog-post-viewer
+```
 
 <!--
 Example commands:
@@ -146,7 +155,10 @@ Example commands:
 
 ### Install
 
-Install the dependencies of this project with:
+Run the command below to install the dependencies of this project.
+```
+npm install
+```
 
 <!--
 Example command:
@@ -159,7 +171,11 @@ Example command:
 
 ### Usage
 
-To run the project, execute the following command:
+To run the project on your local server, execute the following command:
+
+```
+npm run dev
+```
 
 <!--
 Example command:
@@ -172,6 +188,10 @@ Example command:
 ### Run tests
 
 To run tests, run the following command:
+
+```
+npm test
+```
 
 <!--
 Example command:
@@ -213,6 +233,7 @@ Example:
 
 - [ ] **User Authentication**
 - [ ] **Favorite post recommendation**
+- [ ] More performance improvement
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
