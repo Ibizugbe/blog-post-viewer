@@ -64,7 +64,7 @@ For more information on the importance of a professional README for your reposit
 
 # 📖 Blog Post Viewer <a name="about-project"></a>
 
-**Blog Post Viewer** is a...
+**Blog Post Viewer** is  a web application that fetches and displays blog posts from the JSONPlaceholder API. Users can view a list of blog post titles and click on a title to see the full content of the selected blog post.
 
 ## 🛠 Built With <a name="built-with"></a>
 
