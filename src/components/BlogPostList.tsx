@@ -5,8 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import CustomInput from './CustomInput';
 import { BentoGrid, BentoGridItem } from '../ui/bento-grid';
 import { motion } from 'framer-motion';
-import { Spinner } from '@material-tailwind/react';
-
+import LoadingSpinner from "./LoadingSpinner"
 const BlogPostList: React.FC = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useBlogPosts();
   const [searchQuery, setSearchQuery] = useState('');
@@ -37,7 +36,7 @@ const BlogPostList: React.FC = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <Spinner className="h-12 w-12" color="blue" />
+        <LoadingSpinner className="text-gray-900/50" />
       </div>
     );
   }
