@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { BlogPost } from '../types/types';
 import { fetchBlogPost } from '../api/blogPosts';
-import { Spinner } from '@material-tailwind/react';
+import LoadingSpinner from "./LoadingSpinner"
+
 
 
 const BlogPostDetail: React.FC = () => {
@@ -16,10 +17,11 @@ const BlogPostDetail: React.FC = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <Spinner className="h-12 w-12" color="blue" />
+        <LoadingSpinner className="text-gray-900/50" />
       </div>
     );
   }
+  
   if (error) return <div>Error loading post</div>;
 
   return (
