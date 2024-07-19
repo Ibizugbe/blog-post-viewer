@@ -102,6 +102,9 @@ For more information on the importance of a professional README for your reposit
 - **API interaction**
 - **Render all posts**
 - **See details of a post**
+- **Infinite scroll**
+- **Darkmode**
+- **Responsive UI**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
