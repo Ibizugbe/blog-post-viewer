@@ -58,24 +58,26 @@ const BlogPostList: React.FC = () => {
           onChange={handleChange}
         />
       </form>
-      {filteredPosts && filteredPosts.length > 0 ? (
-        <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-          {filteredPosts.map((post, i) => (
-            <BentoGridItem
-              key={post.id}
-              title={
-                <Link to={`/posts/${post.id}`} className="text-left w-full">
-                  {post.title}
-                </Link>
-              }
-              header={<Skeleton />}
-              className={i === 3 || i === 6 ? "md:col-span-2" : ""}
-            />
-          ))}
-        </BentoGrid>
-      ) : (
-        <div>No records found</div>
-      )}
+      <section>
+        {filteredPosts && filteredPosts.length > 0 ? (
+            <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+              {filteredPosts.map((post, i) => (
+                <BentoGridItem
+                  key={post.id}
+                  title={
+                    <Link to={`/posts/${post.id}`} className="text-left w-full">
+                      {post.title}
+                    </Link>
+                  }
+                  header={<Skeleton />}
+                  className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+                />
+              ))}
+            </BentoGrid>
+          ) : (
+          <div>No records found</div>
+        )}
+      </section>
       <div ref={ref} />
     </div>
   );

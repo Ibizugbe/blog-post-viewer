@@ -12,12 +12,8 @@ const App: React.FC = () => {
       </ header>
       <main>
         <Routes>
-          <section>
-            <Route path="/" element={<BlogPostList />} />
-          </section>
-          <section>
-            <Route path="/posts/:id" element={<BlogPostDetail />} />
-          </section>
+          <Route path="/" element={<BlogPostList />} />
+          <Route path="/posts/:id" element={<BlogPostDetail />} />
         </Routes>
       </main>
     </div>
