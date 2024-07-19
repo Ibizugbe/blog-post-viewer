@@ -25,12 +25,12 @@ const BlogPostDetail: React.FC = () => {
   if (error) return <div>Error loading post</div>;
 
   return (
-    <section className='p-4 m-5 lg:w-4/5  border shadow'>
+    <article className='p-4 m-5 lg:w-4/5  border shadow'>
       <div className="">
         <h2 className="text-2xl font-bold mb-2">{post?.title}</h2>
         <p>{post?.body}</p>
       </div>
-    </section>
+    </article>
   );
 };
 
