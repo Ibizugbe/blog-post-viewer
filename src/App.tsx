@@ -7,11 +7,19 @@ import Navbar from './components/Navbar';
 const App: React.FC = () => {
   return (
     <div className="container mx-auto">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<BlogPostList />} />
-        <Route path="/posts/:id" element={<BlogPostDetail />} />
-      </Routes>
+      <header>
+        <Navbar />
+      </ header>
+      <main>
+        <Routes>
+          <section>
+            <Route path="/" element={<BlogPostList />} />
+          </section>
+          <section>
+            <Route path="/posts/:id" element={<BlogPostDetail />} />
+          </section>
+        </Routes>
+      </main>
     </div>
   );
 };
